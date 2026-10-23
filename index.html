@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>SARAYAMART</title>
+<meta name="theme-color" content="#F8F4EA">
+<meta name="description" content="SARAYAMART - aplikasi mini market berbasis web bergaya iPhone 15">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SARAYAMART">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stage">
+  <div id="device">
+    <div id="app">
+      <div id="statusbar" aria-hidden="true">
+        <span id="sb-time">9:41</span>
+        <span class="island"></span>
+        <span class="sb-icons" title="Sinyal &amp; Wi-Fi simulasi. Baterai mengikuti baterai perangkat.">
+          <svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2.5" width="3" height="9.5" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+          <svg width="17" height="12" viewBox="0 0 17 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M1.5 4.2a10 10 0 0 1 14 0"/><path d="M4 6.9a6.5 6.5 0 0 1 9 0"/><circle cx="8.5" cy="10" r="1" fill="currentColor"/></svg>
+          <svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="22" height="12" rx="3.5" fill="none" stroke="currentColor" opacity=".4"/><rect class="bat-fill" x="2" y="2" width="17" height="9" rx="2"/><rect x="24" y="4.5" width="2" height="4" rx="1" opacity=".4"/></svg>
+        </span>
+      </div>
+      <main id="view" aria-live="polite"></main>
+      <div id="cartbar" hidden></div>
+      <nav id="tabbar" aria-label="Navigasi utama"></nav>
+      <div id="homebar" aria-hidden="true"></div>
+      <section id="lock" aria-label="Layar kunci"></section>
+      <div id="overlay"></div>
+      <div id="toast" role="status"></div>
+      <div id="loader"><div class="spin"></div><p id="loader-text">Memuat…</p></div>
+    </div>
+    <section id="hs" aria-label="Layar utama iPhone (simulasi)">
+      <span class="island"></span>
+      <div class="hs-top"><span data-hm>9:41</span><span class="sb-icons"></span></div>
+      <div class="hs-clock"><div class="hs-date" data-date></div><div class="hs-time" data-hm>9:41</div></div>
+      <div class="hs-grid"><button class="hs-app" id="hs-open" aria-label="Buka Saraya Mart"><span class="hs-ic"></span><span>Saraya Mart</span></button></div>
+      <div class="hs-hint">Ketuk ikon untuk membuka · simulasi iPhone</div>
+      <div class="hs-bar"></div>
+    </section>
+  </div>
+</div>
+<div id="printArea"></div>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

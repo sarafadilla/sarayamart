@@ -15,6 +15,9 @@ const HOME = ADMIN ? 'admin' : 'home';
 const LKMSG = ADMIN ? 'Masukkan PIN admin' : 'Masukkan PIN untuk masuk';
 const DEFAULT_USER_PIN = '123456';
 const DEFAULT_ADMIN_PIN = '654321';
+/* Link cadangan tempat folder gambar berada. Gambar dicari dulu di folder aplikasi sendiri (gambar/aqua.jpg),
+   dan kalau tidak ada baru diambil dari link ini. Ganti di sini saja bila link-nya berubah. */
+const IMG_BASE = 'https://sarafadilla.github.io/sara-mart/';
 
 /* ---------- utilitas ---------- */
 const $ = (s, r = document) => r.querySelector(s);
@@ -363,7 +366,8 @@ function closeSheet() { $$('.sheet-bd', overlay).forEach(e => e.remove()); }
 /* ---------- komponen ---------- */
 function imgHTML(p, big) {
   const src = (p.image || '').trim();
-  return `<div class="pimg ${big ? 'big' : ''}" style="background:${esc(p.color || '#EEF2ED')}"><span>${esc(p.emoji || '🛒')}</span>${src ? `<img src="${esc(src)}" alt="${esc(p.name)}" loading="lazy" onerror="this.remove()">` : ''}</div>`;
+  const fb = src && !/^(https?:|data:)/i.test(src) ? IMG_BASE + src : '';   /* cadangan untuk alamat pendek (gambar/aqua.jpg) */
+  return `<div class="pimg ${big ? 'big' : ''}" style="background:${esc(p.color || '#EEF2ED')}"><span>${esc(p.emoji || '🛒')}</span>${src ? `<img src="${esc(src)}" ${fb ? `data-fb="${esc(fb)}" ` : ''}alt="${esc(p.name)}" loading="lazy" onerror="if(this.dataset.fb&&!this.dataset.t){this.dataset.t=1;this.src=this.dataset.fb}else this.remove()">` : ''}</div>`;
 }
 function priceHTML(p) {
   return `<b>${rp(unit(p))}</b>${p.discount ? `<s>${rp(p.price)}</s>` : ''}`;
